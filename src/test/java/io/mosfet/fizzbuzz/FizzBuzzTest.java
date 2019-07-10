@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * github: kmos
  * twitter: nmosf
  */
-public class FizzBuzzTest {
+class FizzBuzzTest {
 
 
     private static final String ONE = "1";
     private static final String TWO = "2";
     private static final String FOUR = "4";
-    public static final String FIZZ = "Fizz";
-    public static final String BUZZ = "Buzz";
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
 
     @Test
     @DisplayName("when I fizzbuzz number 1, I get back a string representing it")

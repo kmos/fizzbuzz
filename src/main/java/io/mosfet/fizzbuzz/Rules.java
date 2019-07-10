@@ -1,6 +1,6 @@
-package io.mosfet.fizzbuzz.conditions;
+package io.mosfet.fizzbuzz;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,21 +13,17 @@ import static java.util.stream.Collectors.joining;
  * github: kmos
  * twitter: nmosf
  */
-public class Rules {
+class Rules {
 
     private List<Rule> elements;
 
-    public Rules() {
-        this.elements = new ArrayList<>();
+    Rules(List<Rule> elements) {
+        this.elements = Collections.unmodifiableList(elements);
     }
 
-    public void add(Rule rule) {
-        elements.add(rule);
-    }
-
-    public String evaluate(Integer number) {
+    String evaluate(Integer number) {
         String result = elements.stream()
-                .map(rule -> rule.apply(number, rule.condition(number, rule.getRuleNumber())))
+                .map(rule -> rule.apply(number))
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(joining());
@@ -39,7 +35,4 @@ public class Rules {
         return result;
     }
 
-    public void addAll(Rules rules) {
-        this.elements.addAll(rules.elements);
-    }
 }

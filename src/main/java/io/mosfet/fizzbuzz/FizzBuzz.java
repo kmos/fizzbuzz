@@ -1,7 +1,7 @@
 package io.mosfet.fizzbuzz;
 
-import io.mosfet.fizzbuzz.conditions.Buzz;
-import io.mosfet.fizzbuzz.conditions.Fizz;
+import java.util.Arrays;
+import java.util.function.BiPredicate;
 
 /**
  * Created with love.
@@ -12,13 +12,19 @@ import io.mosfet.fizzbuzz.conditions.Fizz;
  */
 class FizzBuzz {
 
+    private static final BiPredicate<Integer, Integer> FIZZ_BUZZ_CONDITION = (dividend, divisor) -> dividend % divisor == 0;
+    private static final int FIZZ_NUMBER = 3;
+    private static final int BUZZ_NUMBER = 5;
+    private static final String FIZZ = "Fizz";
+    private static final String BUZZ = "Buzz";
+    private static final Rules RULES = new Rules(Arrays.asList(
+            new Rule(FIZZ_NUMBER, FIZZ_BUZZ_CONDITION, FIZZ),
+            new Rule(BUZZ_NUMBER, FIZZ_BUZZ_CONDITION, BUZZ)));
+
     private Number number;
 
-    FizzBuzz(int number) {
-        this.number = new Number.Builder()
-                .addRule(new Fizz())
-                .addRule(new Buzz())
-                .build(number);
+    FizzBuzz(int value) {
+        this.number = new Number(value, RULES);
     }
 
     String get() {
