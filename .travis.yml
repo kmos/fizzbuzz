@@ -1,8 +1,5 @@
 language: elixir
 
-# We can specify a list of JDKs to be used for testing
-# A list of available JDKs in Trusty can be seed in:
-# https://docs.travis-ci.com/user/reference/trusty/#jvm-clojure-groovy-java-scala-images
 elixir: '1.9.4'
 
 otp_release: '17.4'
