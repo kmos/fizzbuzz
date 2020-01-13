@@ -24,3 +24,8 @@ fizzbuzz-*.tar
 
 .idea/
 *.iml
+
+rel/
+mix.lock
+.elixir_ls
+launch.json
